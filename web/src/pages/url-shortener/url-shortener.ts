@@ -19,10 +19,14 @@ export default Vue.extend<any, any, any, any>({
   computed: {
     fullShortLink() {
       return this.shortLink ? config.apiUrl + this.shortLink : '';
+    },
+    placeholder() {
+      return window.location.href + 'abc123';
     }
   },
   methods: {
-    shrinkUrl() {
+    shrinkUrl(e: Event) {
+      e.preventDefault();
       this.makingRequest = true;
       axios
         .post(config.apiUrl + 'new', { link: this.originalUrl })

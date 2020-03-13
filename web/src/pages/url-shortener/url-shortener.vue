@@ -1,10 +1,10 @@
 <template>
   <div class="url-shortener">
     <div class="text--container">
-      <h1>Have a <br />l<span>ooooooooon</span>g url?</h1>
-      <h2>Shrink it here!</h2>
+      <h1>Have a <br />l<span></span>ng url?</h1>
+      <h2>We'll help you make it shorter.</h2>
     </div>
-    <div class="input-fields--container">
+    <form class="input-fields--container" @submit="shrinkUrl">
       <input-field
         label="Paste your url here"
         icon="link"
@@ -13,20 +13,28 @@
       />
       <cooler-button
         text="Shrink"
-        @click="shrinkUrl"
         :loading="makingRequest"
+        :disabled="originalUrl === ''"
       />
-    </div>
+    </form>
     <div class="input-fields--container">
       <input-field
         :value="fullShortLink"
         name="shortLink"
         icon="rocket"
-        :disabled="shortLink === ''"
-        label="Your link will display here"
+        :disabled="true"
+        :label="
+          shortLink === ''
+            ? placeholder
+            : 'Here\'s your new (and improved) link'
+        "
       />
-      <cooler-button text="Copy" />
-      <cooler-button text="Customize" />
+      <cooler-button
+        text="Copy"
+        class="copy-button"
+        :disabled="fullShortLink === ''"
+      />
+      <cooler-button text="Customize" :disabled="fullShortLink === ''" />
     </div>
   </div>
 </template>
