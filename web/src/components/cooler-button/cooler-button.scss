@@ -1,0 +1,19 @@
+button {
+  width: 100%;
+  padding: 0 24px;
+  height: $form-height;
+  font-size: 1em;
+  border: 3px solid $light-blue;
+  border-radius: 8px;
+  font-weight: 700;
+  color: $light-blue;
+  background: white;
+  box-shadow: $box-shadow;
+  outline: none;
+  transition: all 0.1s;
+  cursor: pointer;
+  &:active {
+    box-shadow: $box-shadow-lower;
+    transform: translateY(4px);
+  }
+}
