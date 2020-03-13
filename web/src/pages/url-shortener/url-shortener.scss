@@ -20,12 +20,20 @@ h1 {
     font-size: 2em;
   }
   span {
+    &::before {
+      content: 'ooooooo';
+    }
     text-decoration: underline wavy;
   }
   @media screen and (max-width: 620px) {
     text-align: center;
     text-shadow: 2px 2px $light-blue;
     margin-top: 48px;
+    span {
+      &::before {
+        content: 'oooo';
+      }
+    }
   }
 }
 
@@ -34,15 +42,17 @@ h2 {
   font-weight: 700;
   color: $light-blue;
   margin-top: 24px;
-  text-shadow: 2px 2px $bright-pink;
+  text-shadow: 4px 4px $bright-pink;
   @media screen and (max-width: 620px) {
     text-align: center;
   }
   @media screen and (max-width: 1500px) {
     font-size: 3em;
+    margin-bottom: 48px;
   }
   @media screen and (max-width: 800px) {
     font-size: 2em;
+    text-shadow: 2px 2px $bright-pink;
   }
   @media screen and (max-width: 550px) {
     font-size: 1.5em;
@@ -59,10 +69,13 @@ h2 {
   }
   @media screen and (max-width: 1000px) {
     flex-direction: column;
-    margin-top: 56px;
+    margin-bottom: 48px;
     .cooler-button {
-      margin: 16px auto;
+      margin: 16px auto 0;
       width: auto;
+    }
+    .copy-button {
+      display: none;
     }
   }
 }

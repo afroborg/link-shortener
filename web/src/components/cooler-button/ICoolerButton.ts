@@ -5,6 +5,7 @@ export interface Props {
   classes?: string;
   width: string;
   loading: boolean;
+  disabled: boolean;
 }
 
 export interface Computed {

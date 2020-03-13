@@ -15,7 +15,7 @@ label {
   color: rgba(0, 0, 0, 0.4);
   z-index: 1;
   i {
-    margin-right: 8px;
+    margin-right: 16px;
   }
   &.active {
     top: -$form-height / 2;
@@ -26,6 +26,17 @@ label {
   &.disabled {
     color: rgba(0, 0, 0, 0.2);
     cursor: not-allowed;
+  }
+  @media screen and (max-width: 620px) {
+    font-size: 0.5em;
+    top: 20px;
+    i {
+      margin-right: 8px;
+    }
+    &.active {
+      font-size: 0.6em;
+      top: -$form-height / 2.5;
+    }
   }
 }
 
@@ -48,5 +59,9 @@ input {
   &:disabled {
     background: #fcfcfc;
     cursor: not-allowed;
+  }
+  @media screen and (max-width: 620px) {
+    height: $form-height / 1.5;
+    font-size: 0.6em;
   }
 }
