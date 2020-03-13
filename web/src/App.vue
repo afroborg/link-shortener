@@ -22,7 +22,7 @@ export default class App extends Vue {}
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: url('./assets/bg-vector2.svg');
+  background: url('./assets/bg-vector.svg');
   background-size: cover;
   position: relative;
 }
