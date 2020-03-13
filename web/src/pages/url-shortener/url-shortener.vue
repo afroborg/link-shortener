@@ -11,7 +11,11 @@
         v-model="originalUrl"
         name="originalUrl"
       />
-      <cooler-button text="Shrink" @click="shrinkUrl" />
+      <cooler-button
+        text="Shrink"
+        @click="shrinkUrl"
+        :loading="makingRequest"
+      />
     </div>
     <div class="input-fields--container">
       <input-field

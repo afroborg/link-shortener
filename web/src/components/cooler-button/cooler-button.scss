@@ -12,8 +12,24 @@ button {
   outline: none;
   transition: all 0.1s;
   cursor: pointer;
+  span {
+    display: flex;
+    i {
+      margin-right: 8px;
+      animation: rotate 1s infinite linear;
+    }
+  }
   &:active {
     box-shadow: $box-shadow-lower;
     transform: translateY(4px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <div :class="'cooler-button ' + classes" :style="'' + style">
-    <button @click="() => $emit('click')">{{ text }}</button>
+    <button @click="() => $emit('click')">
+      <span v-if="!loading">{{ text }}</span>
+      <span v-else><i class="fas fa-spinner-third" /> Loading...</span>
+    </button>
   </div>
 </template>
 

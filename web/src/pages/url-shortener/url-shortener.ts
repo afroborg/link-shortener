@@ -12,7 +12,8 @@ export default Vue.extend<any, any, any, any>({
   data() {
     return {
       originalUrl: '',
-      shortLink: ''
+      shortLink: '',
+      makingRequest: false
     };
   },
   computed: {
@@ -22,10 +23,12 @@ export default Vue.extend<any, any, any, any>({
   },
   methods: {
     shrinkUrl() {
+      this.makingRequest = true;
       axios
-        .post(config.apiUrl + '/new', { link: this.originalUrl })
+        .post(config.apiUrl + 'new', { link: this.originalUrl })
         .then((response: AxiosResponse<IShrunkenLink>) => {
           this.shortLink = response.data.shortLink;
+          this.makingRequest = false;
         })
         .catch(err => {
           window.alert(err);
