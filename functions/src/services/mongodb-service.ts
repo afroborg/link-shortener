@@ -11,7 +11,7 @@ const randomId = (): string => {
 export const newLink = (link: string): Promise<Document> => {
   return new Promise((resolve, reject) => {
     const shrunkenLink = new ShrunkenLink({
-      originalLink: link,
+      originalLink: link.startsWith('http') ? link : 'http://' + link,
       shortLink: randomId()
     });
     shrunkenLink
