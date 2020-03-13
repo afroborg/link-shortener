@@ -23,6 +23,19 @@ button {
     box-shadow: $box-shadow-lower;
     transform: translateY(4px);
   }
+  &:disabled {
+    cursor: not-allowed;
+    text-decoration: line-through;
+    &:active {
+      transform: none;
+      box-shadow: $box-shadow;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 0.6em;
+    padding: 12px;
+    height: $form-height / 1.5;
+  }
 }
 
 @keyframes rotate {

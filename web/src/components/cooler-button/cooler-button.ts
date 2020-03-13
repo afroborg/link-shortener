@@ -9,6 +9,10 @@ export default Vue.extend<Data, any, Computed, Props>({
     loading: {
       default: false,
       type: Boolean
+    },
+    disabled: {
+      default: false,
+      type: Boolean
     }
   },
   computed: {
