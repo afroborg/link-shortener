@@ -13,7 +13,9 @@ export default Vue.extend<Data, any, Computed, Props>({
     disabled: {
       default: false,
       type: Boolean
-    }
+    },
+    icon: String,
+    tooltip: String
   },
   computed: {
     style() {

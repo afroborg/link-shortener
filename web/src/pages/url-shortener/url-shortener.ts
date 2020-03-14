@@ -1,4 +1,5 @@
 import { config } from '@/config';
+import { eventHub } from '@/main';
 import { IShrunkenLink } from '@/models/IShrunkenLink';
 import axios, { AxiosResponse } from 'axios';
 import Vue from 'vue';
@@ -13,7 +14,8 @@ export default Vue.extend<any, any, any, any>({
     return {
       originalUrl: '',
       shortLink: '',
-      makingRequest: false
+      makingRequest: false,
+      copied: false
     };
   },
   computed: {
@@ -28,6 +30,7 @@ export default Vue.extend<any, any, any, any>({
     shrinkUrl(e: Event) {
       e.preventDefault();
       this.makingRequest = true;
+      this.copied = false;
       axios
         .post(config.apiUrl + 'new', { link: this.originalUrl })
         .then((response: AxiosResponse<IShrunkenLink>) => {
@@ -37,6 +40,12 @@ export default Vue.extend<any, any, any, any>({
         .catch(err => {
           window.alert(err);
         });
+    },
+    copyLink() {
+      eventHub.$emit('hightlightText', this.fullShortLink);
+      if (this.shortLink !== '') {
+        this.$copyText(this.fullShortLink).then(() => (this.copied = true));
+      }
     }
   }
 });

@@ -56,12 +56,20 @@ input {
     box-shadow: $box-shadow-higher;
     transform: translateY(-4px);
   }
-  &:disabled {
+  &.disabled {
     background: #fcfcfc;
-    cursor: not-allowed;
+    pointer-events: none;
   }
   @media screen and (max-width: 620px) {
     height: $form-height / 1.5;
     font-size: 0.6em;
   }
+}
+
+.disabled--clicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

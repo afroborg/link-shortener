@@ -29,6 +29,7 @@ export default class App extends Vue {}
   background: url('./assets/bg-vector.svg');
   background-size: cover;
   position: relative;
+  background-position: right;
 }
 
 .signature {

@@ -5,20 +5,27 @@
       v-if="label"
       :class="{ active: isActive, disabled }"
     >
-      <i :class="'far fa-' + icon" v-if="icon" />
+      <i :class="'fal fa-' + icon" v-if="icon" />
       <span>{{ label }}</span>
     </label>
     <input
-      type="text"
-      :name="name"
-      :id="'input-field--' + name"
-      @focus="() => (active = true)"
+      @focus="() => (!disabled ? (active = true) : null)"
       @blur="() => (active = false)"
       @input="updateValue"
-      :disabled="disabled"
+      :name="name"
+      :id="'input-field--' + name"
       :value="value"
       :placeholder="placeholder"
+      :class="{ disabled }"
+      :readonly="disabled"
+      type="text"
+      ref="input"
     />
+    <div
+      class="disabled--clicker"
+      v-if="disabled"
+      @click="() => $emit('click')"
+    ></div>
   </div>
 </template>
 

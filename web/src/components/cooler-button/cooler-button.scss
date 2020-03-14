@@ -1,40 +1,72 @@
-button {
-  width: 100%;
-  padding: 0 24px;
-  height: $form-height;
-  font-size: 1em;
-  border: 3px solid $light-blue;
-  border-radius: 8px;
-  font-weight: 700;
-  color: $light-blue;
-  background: white;
-  box-shadow: $box-shadow;
-  outline: none;
-  transition: all 0.1s;
-  cursor: pointer;
-  span {
-    display: flex;
-    i {
-      margin-right: 8px;
-      animation: rotate 1s infinite linear;
+.cooler-button {
+  position: relative;
+  button {
+    width: 100%;
+    padding: 0 24px;
+    height: $form-height;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    color: $beige;
+    background: $bright-pink;
+    box-shadow: $box-shadow;
+    outline: none;
+    transition: all 0.1s;
+    text-transform: uppercase;
+    cursor: pointer;
+    span {
+      display: flex;
+      .spinner {
+        animation: rotate 1s infinite linear;
+      }
+      .loading--text {
+        margin-left: 8px;
+      }
     }
-  }
-  &:active {
-    box-shadow: $box-shadow-lower;
-    transform: translateY(4px);
-  }
-  &:disabled {
-    cursor: not-allowed;
-    text-decoration: line-through;
     &:active {
-      transform: none;
-      box-shadow: $box-shadow;
+      box-shadow: $box-shadow-lower;
+      transform: translateY(4px);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      &:active {
+        transform: none;
+        box-shadow: $box-shadow;
+      }
+    }
+    @media screen and (max-width: 620px) {
+      height: $form-height / 1.5;
+      font-size: 0.6em;
     }
   }
-  @media screen and (max-width: 550px) {
-    font-size: 0.6em;
-    padding: 12px;
-    height: $form-height / 1.5;
+
+  .tooltip {
+    $tt-font-size: 0.8em;
+    position: absolute;
+    font-size: $tt-font-size;
+    background: #5d576b;
+    padding: 8px 12px;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    box-shadow: $box-shadow;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s;
+    z-index: 9;
+    &.disabled {
+      text-decoration: line-through;
+    }
+  }
+  &:hover {
+    .tooltip {
+      transform: translate(-50%, -120%);
+      opacity: 1;
+    }
   }
 }
 

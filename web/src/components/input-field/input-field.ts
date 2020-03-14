@@ -1,3 +1,4 @@
+import { eventHub } from '@/main';
 import Vue from 'vue';
 import { Computed, Data, Methods, Props } from './IInputField';
 
@@ -18,6 +19,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       type: Boolean
     }
   },
+  mounted() {
+    eventHub.$on('hightlightText', (value: string) => {
+      if (this.value === value) {
+        setTimeout(() => (this.$refs.input as HTMLInputElement).select(), 0);
+      }
+    });
+  },
   data() {
     return {
       active: false
@@ -30,8 +38,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   methods: {
     updateValue(e: Event): void {
-      const value = (e.target as HTMLInputElement).value;
       if (!this.disabled) {
+        const value = (e.target as HTMLInputElement).value;
         this.$emit('input', value);
       }
     }

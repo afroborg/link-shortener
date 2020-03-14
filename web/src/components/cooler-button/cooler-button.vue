@@ -1,8 +1,17 @@
 <template>
   <div :class="'cooler-button ' + classes" :style="'' + style">
+    <div class="tooltip" :class="{ disabled }" v-if="tooltip">
+      {{ tooltip }}
+    </div>
     <button @click="() => $emit('click')" :disabled="disabled">
-      <span v-if="!loading">{{ text }}</span>
-      <span v-else><i class="fas fa-spinner-third" /> Loading...</span>
+      <span v-if="!loading">
+        <i v-if="icon" :class="icon" />
+        {{ text }}
+      </span>
+      <span v-else
+        ><i class="fas fa-spinner-third spinner" />
+        <span v-if="text" class="loading--text"> Loading...</span>
+      </span>
     </button>
   </div>
 </template>

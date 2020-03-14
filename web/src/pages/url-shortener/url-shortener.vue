@@ -1,8 +1,11 @@
 <template>
   <div class="url-shortener">
     <div class="text--container">
-      <h1>Have a <br />l<span></span>ng url?</h1>
-      <h2>We'll help you make it shorter.</h2>
+      <h1>
+        Have a
+        <br />l<span></span>ng url?
+      </h1>
+      <h2>Let's shorten it.</h2>
     </div>
     <form class="input-fields--container" @submit="shrinkUrl">
       <input-field
@@ -12,9 +15,10 @@
         name="originalUrl"
       />
       <cooler-button
-        text="Shrink"
         :loading="makingRequest"
         :disabled="originalUrl === ''"
+        icon="fal fa-compress-alt"
+        tooltip="Shrink!"
       />
     </form>
     <div class="input-fields--container">
@@ -28,13 +32,20 @@
             ? placeholder
             : 'Here\'s your new (and improved) link'
         "
+        @click="copyLink"
       />
       <cooler-button
-        text="Copy"
         class="copy-button"
         :disabled="fullShortLink === ''"
+        :icon="copied ? 'far fa-check' : 'fal fa-copy'"
+        tooltip="Copy!"
+        @click="copyLink"
       />
-      <cooler-button text="Customize" :disabled="fullShortLink === ''" />
+      <cooler-button
+        icon="fal fa-palette"
+        :disabled="fullShortLink === ''"
+        tooltip="Customize!"
+      />
     </div>
   </div>
 </template>

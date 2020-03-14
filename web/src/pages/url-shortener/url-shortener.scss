@@ -1,7 +1,7 @@
 .text--container {
   padding: 8% 8% 4%;
   @media screen and (max-width: 450px) {
-    padding: 4%;
+    padding: 12px;
   }
 }
 
@@ -28,7 +28,7 @@ h1 {
   @media screen and (max-width: 620px) {
     text-align: center;
     text-shadow: 2px 2px $light-blue;
-    margin-top: 48px;
+    margin-top: 12vh;
     span {
       &::before {
         content: 'oooo';
@@ -61,17 +61,17 @@ h2 {
 
 .input-fields--container {
   width: 80vw;
-  margin-left: 10vw;
+  margin: 0 auto 64px;
   display: flex;
-  margin-bottom: 64px;
   .cooler-button {
     margin-left: 16px;
   }
   @media screen and (max-width: 1000px) {
-    flex-direction: column;
+    // flex-direction: column;
     margin-bottom: 48px;
+    width: 95vw;
     .cooler-button {
-      margin: 16px auto 0;
+      // margin: 16px auto 0;
       width: auto;
     }
     .copy-button {
