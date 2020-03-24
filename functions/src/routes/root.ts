@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { getLink, newLink } from '../services/mongodb-service';
+import { deleteLink, getLink, newLink } from '../services/mongodb-service';
 const app = Router();
 
 app.get('/:shortLink', (req: Request, res: Response): void => {
@@ -12,6 +12,13 @@ app.get('/:shortLink', (req: Request, res: Response): void => {
 app.post('/new', (req: Request, res: Response) => {
   newLink(req.body.link)
     .then(data => res.send(data))
+    .catch(err => res.status(500).send(err));
+});
+
+app.delete('/:id', (req: Request, res: Response): void => {
+  const id = req.params.id;
+  deleteLink(id)
+    .then(() => res.status(200).send())
     .catch(err => res.status(500).send(err));
 });
 

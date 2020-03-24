@@ -45,3 +45,20 @@ export const getLink = (shortLink: string): Promise<string> => {
       });
   });
 };
+
+export const getAllLinks = (): Promise<Document[]> => {
+  return new Promise((resolve, reject) => {
+    ShrunkenLink.find()
+      .sort({ clicks: -1 })
+      .then(resolve)
+      .catch(reject);
+  });
+};
+
+export const deleteLink = (id: string): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    ShrunkenLink.findByIdAndRemove(id)
+      .then(() => resolve(true))
+      .catch(err => reject(err));
+  });
+};

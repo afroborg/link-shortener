@@ -1,0 +1,31 @@
+.url-info {
+  min-height: 100vh;
+  padding: 12px 24px 54px 24px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+tr:hover {
+  td {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+td,
+th {
+  font-size: 0.7em;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  border: none;
+}
+
+.fa-trash:hover {
+  color: red;
+  cursor: pointer;
+}

@@ -7,9 +7,8 @@ $padding: 24px;
 
 label {
   display: block;
-  // font-size: $font-size;
   position: absolute;
-  top: $form-height - $font-size - $padding - 6px;
+  top: $form-height - $font-size - $padding - 3px;
   left: $padding;
   transition: all 0.2s;
   color: rgba(0, 0, 0, 0.4);
@@ -59,6 +58,10 @@ input {
   &.disabled {
     background: #fcfcfc;
     pointer-events: none;
+    &:focus {
+      box-shadow: $box-shadow;
+      transform: translateY(0px);
+    }
   }
   @media screen and (max-width: 620px) {
     height: $form-height / 1.5;

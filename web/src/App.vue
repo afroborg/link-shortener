@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="url-shortener--container">
-      <url-shortener></url-shortener>
+      <router-view />
     </div>
     <div class="signature">
       Created by
@@ -23,13 +23,11 @@ export default class App extends Vue {}
 
 <style lang="scss">
 #app {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
   background: url('./assets/bg-vector.svg');
   background-size: cover;
   position: relative;
   background-position: right;
+  background-attachment: fixed;
 }
 
 .signature {
